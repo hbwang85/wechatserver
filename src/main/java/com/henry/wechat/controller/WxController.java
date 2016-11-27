@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by w-teng on 2016/11/27.
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping({"/", "wechatserver"})
 public class WxController {
 
     @RequestMapping(method = RequestMethod.GET)
