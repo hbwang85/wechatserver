@@ -1,6 +1,8 @@
 package com.henry.wechat.controller;
 
-import com.henry.wechat.service.WxMpService;
+import com.henry.wechat.service.impl.WxMpServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,15 +19,22 @@ import javax.servlet.http.HttpServletResponse;
 public class WxController {
 
     @Autowired
-    private WxMpService wxMpService;
+    private WxMpServiceImpl wxMpService;
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping(method = RequestMethod.GET)
     public String home() {
+        log.info("======****get root path request");
+
         return "index";
     }
 
     @RequestMapping(value="wechat/", method=RequestMethod.GET)
     public void verifyMpServer(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        log.info("======****get wechat path request to verify mp server");
+
+
         response.setContentType("text/html; charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
 

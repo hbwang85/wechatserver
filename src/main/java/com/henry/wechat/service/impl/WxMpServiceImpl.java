@@ -13,12 +13,15 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 /**
  * Created by w-teng on 2016/12/4.
  */
+
+@Service
 public class WxMpServiceImpl implements WxMpService{
 
     private final WxMpConfigStorage configStorage;
@@ -44,6 +47,7 @@ public class WxMpServiceImpl implements WxMpService{
     }
 
     public boolean checkSignature(String timestamp, String nonce, String signature) {
+        this.log.info("==========****** signature: " + signature + "timestamp: " + timestamp + "nonce: " + nonce);
         return SHA1.gen(defaultToken, timestamp, nonce).equals(signature);
     }
 
