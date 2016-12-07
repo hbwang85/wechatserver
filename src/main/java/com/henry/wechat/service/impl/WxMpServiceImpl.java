@@ -35,9 +35,9 @@ public class WxMpServiceImpl implements WxMpService{
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    public WxMpServiceImpl(WxMpConfigStorage configStorage, ObjectMapper objectMapper) {
+    public WxMpServiceImpl(WxMpConfigStorage configStorage) {
         this.configStorage = configStorage;
-        this.objectMapper = objectMapper;
+        this.objectMapper = new ObjectMapper();
 
     }
 

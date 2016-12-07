@@ -19,7 +19,7 @@ public class WxMpServiceImplTest {
     public void setUp() throws Exception {
         mockconfigStorage = new WxMpInMemoryConfigStorageImpl();
         mockObjectMapper = new ObjectMapper();
-        mockMpService = new WxMpServiceImpl(mockconfigStorage, mockObjectMapper);
+        mockMpService = new WxMpServiceImpl(mockconfigStorage);
 
     }
 
