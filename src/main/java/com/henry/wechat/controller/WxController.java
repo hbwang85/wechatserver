@@ -37,6 +37,11 @@ public class WxController {
         return "index";
     }
 
+    @RequestMapping(value="/sorry", method=RequestMethod.GET)
+    public String sorry() {
+        return "sorry";
+    }
+
     @RequestMapping(value="/wechat", method=RequestMethod.GET)
     public void verifyMpServer(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
